@@ -4,11 +4,11 @@ Pause and resume a Meteor.publish to prevent server lock up when large number of
 
 # ALPHA
 
-I created this from an old function I justed for publishing joins.  I have only tested it locally and using about 10 clients which is enough to show poor performance with 10 clients / observers running.  
+I created this from an old function I used for publishing joins.  I have only tested it locally and using about 10 clients which is enough to show poor performance with 10 clients / observers running.  
 
 The performance improvement was impressive but if you add `this.unblock()` to the method call or create overlapping pause / resume calls the server once again locks up.  I am not sure if the performance is made worse by this package or if it just a reversion to standard behaviour of trying to observe a large set of modifications.
 
-At any rate I think there would be a way to fix this by creating a cue or keeping the state of the pausePublish intance so that overlapping pause / resume loops can be avoided.
+At any rate I think there would be a way to fix this by creating a queue or keeping the state of the pausePublish intance so that overlapping pause / resume loops can be avoided.
 
 ## Installation
 
